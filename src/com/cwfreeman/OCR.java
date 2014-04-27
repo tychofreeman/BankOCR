@@ -1,5 +1,7 @@
 package com.cwfreeman;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -25,12 +27,8 @@ public class OCR {
         return accum;
     }
 
-    private static List<AccountData> parseAccountNumbers(String[] lines) {
-        List<AccountData> accounts = new ArrayList<AccountData>();
-        for( int i = 0; i < lines.length; i+= 4 ) {
-            final AccountData account = new AccountData(Arrays.copyOfRange(lines, i, i + 3));
-            accounts.add(account);
-        }
+    private static Iterable<AccountData> parseAccountNumbers(String[] lines) {
+        AccountList accounts = new AccountList(lines);
         return accounts;
     }
 
@@ -52,4 +50,20 @@ public class OCR {
         }
     }
 
+}
+
+class AccountList implements Iterable<AccountData>
+{
+    List<AccountData> accounts;
+    public AccountList(String[] lines) {
+        accounts = new ArrayList<AccountData>();
+        for( int i = 0; i < lines.length; i+= 4 ) {
+            final AccountData account = new AccountData(Arrays.copyOfRange(lines, i, i + 3));
+            accounts.add(account);
+        }
+    }
+
+    public Iterator<AccountData> iterator() {
+        return accounts.iterator();
+    }
 }

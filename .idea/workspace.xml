@@ -80,13 +80,10 @@
       <file leaf-file-name="OCR.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="18" selection-start="4780" selection-end="4780" vertical-scroll-proportion="0.5875576" vertical-offset="2385" max-vertical-offset="2835">
+            <state line="56" column="0" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.3778802" vertical-offset="676" max-vertical-offset="1110">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#514#522#0" expanded="true" />
-                <element signature="e#805#818#0" expanded="true" />
-                <element signature="e#4297#4298#0" expanded="true" />
-                <element signature="e#4325#4326#0" expanded="true" />
+                <element signature="e#586#594#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,6 +200,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cwfreeman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -218,7 +233,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/com/cwfreeman" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -227,9 +242,12 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.cwfreeman.AccountList" />
       <recent name="com.cwfreeman.Digit" />
       <recent name="com.cwfreeman.AccountData" />
       <recent name="com.cwfreeman.DigitData" />
@@ -499,7 +517,11 @@
       <created>1398627456600</created>
       <updated>1398627456600</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="A little cleanup&#10;">
+      <created>1398627742386</created>
+      <updated>1398627742386</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -549,7 +571,8 @@
     <MESSAGE value="Moving static digit data out to a separate class as well." />
     <MESSAGE value="Simplifying AccountDigit - it now self-reports read errors." />
     <MESSAGE value="A little cleanup&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="A little cleanup&#10;&#10;" />
+    <MESSAGE value="A little cleanup&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="A little cleanup&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -570,13 +593,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="18" selection-start="4780" selection-end="4780" vertical-scroll-proportion="0.5875576" vertical-offset="2385" max-vertical-offset="2835">
+        <state line="56" column="0" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.3778802" vertical-offset="676" max-vertical-offset="1110">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#514#522#0" expanded="true" />
-            <element signature="e#805#818#0" expanded="true" />
-            <element signature="e#4297#4298#0" expanded="true" />
-            <element signature="e#4325#4326#0" expanded="true" />
+            <element signature="e#586#594#0" expanded="true" />
           </folding>
         </state>
       </provider>
