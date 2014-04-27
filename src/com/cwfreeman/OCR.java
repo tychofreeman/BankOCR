@@ -67,14 +67,14 @@ class DigitMap
                         + " _|"
                         + " _|";
     static String FOUR =  "   "
-                       + "|_|"
-                       + "  |";
+                        + "|_|"
+                        + "  |";
     static String FIVE =  " _ "
-                       + "|_ "
-                       + " _|";
+                        + "|_ "
+                        + " _|";
     static String SIX =   " _ "
-                       + "|_ "
-                       + "|_|";
+                        + "|_ "
+                        + "|_|";
     static String SEVEN = " _ "
                         + "  |"
                         + "  |";
@@ -82,8 +82,8 @@ class DigitMap
                         + "|_|"
                         + "|_|";
     static String NINE =  " _ "
-                       + "|_|"
-                       + " _|";
+                        + "|_|"
+                        + " _|";
     static String ZERO =  " _ "
                         + "| |"
                         + "|_|";
@@ -136,6 +136,8 @@ class AccountDigit
 class AccountData extends ArrayList<String>
 {
     String value;
+    private boolean readError = false;
+
     public AccountData(String[] data)
     {
         value = parseAcctNumber(Arrays.asList(data));
@@ -151,7 +153,7 @@ class AccountData extends ArrayList<String>
     }
 
     boolean hasReadError() {
-        return value.contains("?");
+        return readError;
     }
 
     String getValue() {
@@ -163,6 +165,7 @@ class AccountData extends ArrayList<String>
         for( int i = 0; i < 9; i++) {
             AccountDigit digitData = getNthDigitData(i, data);
             if (digitData.hasReadError()) {
+                readError = true;
                 accumulator += "?";
             } else {
                 accumulator += digitData.value();
@@ -171,7 +174,7 @@ class AccountData extends ArrayList<String>
         return accumulator;
     }
 
-    private AccountDigit getNthDigitData(int n, List<String> data) {
+    private static AccountDigit getNthDigitData(int n, List<String> data) {
         final int i = 3 * n;
         return new AccountDigit(
                 data.get(0).substring(i, i + 3),

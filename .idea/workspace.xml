@@ -80,13 +80,13 @@
       <file leaf-file-name="OCR.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="0" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.40092167" vertical-offset="1626" max-vertical-offset="2790">
+            <state line="176" column="18" selection-start="4780" selection-end="4780" vertical-scroll-proportion="0.5875576" vertical-offset="2385" max-vertical-offset="2835">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#514#522#0" expanded="true" />
                 <element signature="e#805#818#0" expanded="true" />
-                <element signature="e#4259#4260#0" expanded="true" />
-                <element signature="e#4287#4288#0" expanded="true" />
+                <element signature="e#4297#4298#0" expanded="true" />
+                <element signature="e#4325#4326#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -495,7 +495,11 @@
       <created>1398627218666</created>
       <updated>1398627218666</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="A little cleanup&#10;&#10;">
+      <created>1398627456600</created>
+      <updated>1398627456600</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -544,7 +548,8 @@
     <MESSAGE value="Moving toward classes instead of suffering from Primitive Obsession.&#10;" />
     <MESSAGE value="Moving static digit data out to a separate class as well." />
     <MESSAGE value="Simplifying AccountDigit - it now self-reports read errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Simplifying AccountDigit - it now self-reports read errors." />
+    <MESSAGE value="A little cleanup&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="A little cleanup&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -565,13 +570,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="0" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.40092167" vertical-offset="1626" max-vertical-offset="2790">
+        <state line="176" column="18" selection-start="4780" selection-end="4780" vertical-scroll-proportion="0.5875576" vertical-offset="2385" max-vertical-offset="2835">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#514#522#0" expanded="true" />
             <element signature="e#805#818#0" expanded="true" />
-            <element signature="e#4259#4260#0" expanded="true" />
-            <element signature="e#4287#4288#0" expanded="true" />
+            <element signature="e#4297#4298#0" expanded="true" />
+            <element signature="e#4325#4326#0" expanded="true" />
           </folding>
         </state>
       </provider>
