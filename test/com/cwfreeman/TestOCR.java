@@ -3,80 +3,78 @@ package com.cwfreeman;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
-        Assert.assertEquals(1, OCR.convertSingleDigit(Arrays.asList(
+        Assert.assertEquals(1, new DigitData(
                 "   ",
                 "  |",
-                "  |")));
-        Assert.assertEquals(2, OCR.convertSingleDigit(Arrays.asList(
+                "  |").convertToDigit());
+        Assert.assertEquals(2, new DigitData(
                 " _ ",
                 " _|",
-                "|_ ")));
-        Assert.assertEquals(3, OCR.convertSingleDigit(Arrays.asList(
+                "|_ ").convertToDigit());
+        Assert.assertEquals(3, new DigitData(
                 " _ ",
                 " _|",
-                " _|")));
-        Assert.assertEquals(4, OCR.convertSingleDigit(Arrays.asList(
+                " _|").convertToDigit());
+        Assert.assertEquals(4, new DigitData(
                 "   ",
                 "|_|",
-                "  |")));
-        Assert.assertEquals(5, OCR.convertSingleDigit(Arrays.asList(
+                "  |").convertToDigit());
+        Assert.assertEquals(5, new DigitData(
                 " _ ",
                 "|_ ",
-                " _|")));
-        Assert.assertEquals(6, OCR.convertSingleDigit(Arrays.asList(
+                " _|").convertToDigit());
+        Assert.assertEquals(6, new DigitData(
                 " _ ",
                 "|_ ",
-                "|_|")));
-        Assert.assertEquals(7, OCR.convertSingleDigit(Arrays.asList(
+                "|_|").convertToDigit());
+        Assert.assertEquals(7, new DigitData(
                 " _ ",
                 "  |",
-                "  |")));
-        Assert.assertEquals(8, OCR.convertSingleDigit(Arrays.asList(
+                "  |").convertToDigit());
+        Assert.assertEquals(8, new DigitData(
                 " _ ",
                 "|_|",
-                "|_|")));
-        Assert.assertEquals(9, OCR.convertSingleDigit(Arrays.asList(
+                "|_|").convertToDigit());
+        Assert.assertEquals(9, new DigitData(
                 " _ ",
                 "|_|",
-                " _|")));
-        Assert.assertEquals(0, OCR.convertSingleDigit(Arrays.asList(
+                " _|").convertToDigit());
+        Assert.assertEquals(0, new DigitData(
                 " _ ",
                 "| |",
-                "|_|")));
+                "|_|").convertToDigit());
     }
 
     @Test
     public void readsWholeAccountNumber() {
-        String actual = OCR.parseAndEncodeAcctNumber(new String[]{
+        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
                 "    _  _     _  _  _  _  _ \n",
                 "  | _| _||_||_ |_   ||_||_|\n",
                 "  ||_  _|  | _||_|  ||_| _|\n"
-        });
+        }));
         Assert.assertEquals("123456789", actual);
     }
 
     @Test
     public void alertsIfAcctNumIsIllegible() {
-        String actual = OCR.parseAndEncodeAcctNumber( new String[]{
+        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n"
-        });
+        }));
         Assert.assertEquals("????????? ILL", actual);
     }
 
     @Test
     public void alertsIfWrongCheckSum() {
-        String actual = OCR.parseAndEncodeAcctNumber(new String[]{
+        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
                 " _  _     _  _        _  _ \n",
                 "|_ |_ |_| _|  |  ||_||_||_ \n",
                 "|_||_|  | _|  |  |  | _| _|\n"
-        });
+        }));
         Assert.assertEquals("664371495 ERR", actual);
     }
 

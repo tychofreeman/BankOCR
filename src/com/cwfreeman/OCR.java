@@ -8,76 +8,28 @@ import java.util.*;
  * Created by cwfreeman on 4/26/14.
  */
 public class OCR {
-    private static String ONE =   "   "
-                                + "  |"
-                                + "  |";
-
-    private static String TWO =   " _ "
-                                + " _|"
-                                + "|_ ";
-
-    private static String THREE = " _ "
-                                + " _|"
-                                + " _|";
-    private static String FOUR =  "   "
-                                + "|_|"
-                                + "  |";
-    private static String FIVE =  " _ "
-                                + "|_ "
-                                + " _|";
-    private static String SIX =   " _ "
-                                + "|_ "
-                                + "|_|";
-    private static String SEVEN = " _ "
-                                + "  |"
-                                + "  |";
-    private static String EIGHT = " _ "
-                                + "|_|"
-                                + "|_|";
-    private static String NINE =  " _ "
-                                + "|_|"
-                                + " _|";
-    private static String ZERO =  " _ "
-                                + "| |"
-                                + "|_|";
-
-    private static final Map<String,Integer> DIGITS = new HashMap<String, Integer>();
-    static {
-        final List<String> digitList = Arrays.asList(ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE);
-        for( int i = 0; i < 10; i++ ) {
-            DIGITS.put(digitList.get(i), i);
-        }
-
-    }
-
-    private static String getDigitKey(List<String> digitLines) {
-        return digitLines.get(0) + digitLines.get(1) + digitLines.get(2);
-    }
-
-    public static int convertSingleDigit(List<String> digitLines) {
-        final String digitKey = getDigitKey(digitLines);
-        if( DIGITS.containsKey(digitKey) )
-            return DIGITS.get(digitKey);
-        return -1;
-    }
 
     public static String ocrMultipleAccounts(String content) {
-        return ocrMultipleAccounts(content.split("\n"));
-    }
-
-    private static String ocrMultipleAccounts(String[] lines) {
-        return encodeAccounts(createAccounts(lines));
-    }
-
-    private static String encodeAccounts(List<AccountData> accounts) {
         String accum = "";
-        for( AccountData account : accounts ) {
-            accum += encodeAcctNumber(account) + "\n";
+        for( String acct : ocrMultipleAccounts(content.split("\n"))) {
+            accum += acct + "\n";
         }
         return accum;
     }
 
-    private static List<AccountData> createAccounts(String[] lines) {
+    private static List<String> ocrMultipleAccounts(String[] lines) {
+        return ocrMultipleAccounts(parseAccountNumbers(lines));
+    }
+
+    private static List<String> ocrMultipleAccounts(List<AccountData> accounts) {
+        List<String> accum = new ArrayList<String>();
+        for( AccountData account : accounts ) {
+            accum.add(encodeAcctNumber(account));
+        }
+        return accum;
+    }
+
+    private static List<AccountData> parseAccountNumbers(String[] lines) {
         List<AccountData> accounts = new ArrayList<AccountData>();
         for( int i = 0; i < lines.length; i+= 4 ) {
             final AccountData account = new AccountData(Arrays.copyOfRange(lines, i, i + 3));
@@ -86,13 +38,8 @@ public class OCR {
         return accounts;
     }
 
-    static String parseAndEncodeAcctNumber(String[] acctNumLines) {
-        final AccountData lineData = new AccountData(acctNumLines);
-        return encodeAcctNumber(lineData);
-    }
-
-    private static String encodeAcctNumber(AccountData lineData) {
-        return encodeAcctNum(lineData.parseAcctNumber());
+    static String encodeAcctNumber(AccountData lineData) {
+        return encodeAcctNum(lineData.getValue());
     }
 
     private static boolean passesCheckSum(String ocrResult) {
@@ -123,30 +70,84 @@ public class OCR {
 
 }
 
-class DigitData extends ArrayList<String>
+class DigitData
 {
+    static final Map<String,Integer> DIGITS = new HashMap<String, Integer>();
+    static String ONE =   "   "
+                        + "  |"
+                        + "  |";
+    static String TWO =   " _ "
+                        + " _|"
+                        + "|_ ";
+    static String THREE = " _ "
+                        + " _|"
+                        + " _|";
+    static String FOUR =  "   "
+                        + "|_|"
+                        + "  |";
+    static String FIVE =  " _ "
+                        + "|_ "
+                        + " _|";
+    static String SIX =   " _ "
+                        + "|_ "
+                        + "|_|";
+    static String SEVEN = " _ "
+                        + "  |"
+                        + "  |";
+    static String EIGHT = " _ "
+                        + "|_|"
+                        + "|_|";
+    static String NINE =  " _ "
+                        + "|_|"
+                        + " _|";
+    static String ZERO =  " _ "
+                        + "| |"
+                        + "|_|";
+
+
+    static {
+        final List<String> digitList = Arrays.asList(DigitData.ZERO, DigitData.ONE, DigitData.TWO, DigitData.THREE, DigitData.FOUR, DigitData.FIVE, DigitData.SIX, DigitData.SEVEN, DigitData.EIGHT, DigitData.NINE);
+        for( int i = 0; i < 10; i++ ) {
+            DigitData.DIGITS.put(digitList.get(i), i);
+        }
+
+    }
+
+    private String cells;
+
     public DigitData(String line1, String line2, String line3) {
-        add(line1);
-        add(line2);
-        add(line3);
+        cells = line1 + line2 + line3;
+    }
+
+    String getKey() {
+        return cells;
+    }
+
+    public int convertToDigit() {
+        final String digitKey = getKey();
+        if( DIGITS.containsKey(digitKey) )
+            return DIGITS.get(digitKey);
+        return -1;
     }
 }
 
 class AccountData extends ArrayList<String>
 {
+    String value;
     public AccountData(String[] data)
     {
-        for( String s : data )
-        {
-            add(s);
-        }
+        value = parseAcctNumber(Arrays.asList(data));
     }
 
-    String parseAcctNumber() {
+    String getValue() {
+        return value;
+    }
+
+    private String parseAcctNumber(List<String> data) {
         String accumulator = "";
         for( int i = 0; i < 9; i++) {
-            List<String> digitData = getNthDigitData(i);
-            Integer num = OCR.convertSingleDigit(digitData);
+            DigitData digitData = getNthDigitData(i, data);
+            Integer num = digitData.convertToDigit();
             if( num >= 0 )
                 accumulator += num;
             else
@@ -155,11 +156,11 @@ class AccountData extends ArrayList<String>
         return accumulator;
     }
 
-    DigitData getNthDigitData(int n) {
+    private DigitData getNthDigitData(int n, List<String> data) {
         final int i = 3 * n;
         return new DigitData(
-                get(0).substring(i, i + 3),
-                get(1).substring(i, i + 3),
-                get(2).substring(i, i + 3));
+                data.get(0).substring(i, i + 3),
+                data.get(1).substring(i, i + 3),
+                data.get(2).substring(i, i + 3));
     }
 }
