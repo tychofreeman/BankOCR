@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fe815407-e653-4710-ae35-f884e2625954" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" afterPath="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java" afterPath="$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BankOCR.iws" />
@@ -81,13 +80,13 @@
       <file leaf-file-name="OCR.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="70" selection-start="4603" selection-end="4603" vertical-scroll-proportion="5.4608293" vertical-offset="150" max-vertical-offset="2745">
+            <state line="120" column="0" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.40092167" vertical-offset="1626" max-vertical-offset="2790">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#514#522#0" expanded="true" />
                 <element signature="e#805#818#0" expanded="true" />
-                <element signature="e#4179#4180#0" expanded="true" />
-                <element signature="e#4207#4208#0" expanded="true" />
+                <element signature="e#4259#4260#0" expanded="true" />
+                <element signature="e#4287#4288#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -492,7 +491,11 @@
       <created>1398625895284</created>
       <updated>1398625895284</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Simplifying AccountDigit - it now self-reports read errors.">
+      <created>1398627218666</created>
+      <updated>1398627218666</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -518,7 +521,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25751072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -540,7 +543,8 @@
     <MESSAGE value="Adding ability to read multiple account numbers.&#10;" />
     <MESSAGE value="Moving toward classes instead of suffering from Primitive Obsession.&#10;" />
     <MESSAGE value="Moving static digit data out to a separate class as well." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving static digit data out to a separate class as well." />
+    <MESSAGE value="Simplifying AccountDigit - it now self-reports read errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplifying AccountDigit - it now self-reports read errors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -561,13 +565,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="70" selection-start="4603" selection-end="4603" vertical-scroll-proportion="5.4608293" vertical-offset="150" max-vertical-offset="2745">
+        <state line="120" column="0" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.40092167" vertical-offset="1626" max-vertical-offset="2790">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#514#522#0" expanded="true" />
             <element signature="e#805#818#0" expanded="true" />
-            <element signature="e#4179#4180#0" expanded="true" />
-            <element signature="e#4207#4208#0" expanded="true" />
+            <element signature="e#4259#4260#0" expanded="true" />
+            <element signature="e#4287#4288#0" expanded="true" />
           </folding>
         </state>
       </provider>

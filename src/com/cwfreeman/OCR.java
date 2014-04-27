@@ -110,15 +110,15 @@ class AccountDigit
 {
     private static final DigitMap DIGITS = new DigitMap();
 
-    private String cells;
     private final Integer digit;
     boolean readError = false;
 
     public AccountDigit(String line1, String line2, String line3) {
-        cells = line1 + line2 + line3;
-        if( DIGITS.containsKey(cells) )
+        String cells = line1 + line2 + line3;
+        if( DIGITS.containsKey(cells) )    {
             digit = DIGITS.getValue(cells);
-        else {
+            readError = false;
+        } else {
             digit = null;
             readError = true;
         }
@@ -128,6 +128,9 @@ class AccountDigit
         return digit;
     }
 
+    boolean hasReadError() {
+        return readError;
+    }
 }
 
 class AccountData extends ArrayList<String>
@@ -159,7 +162,7 @@ class AccountData extends ArrayList<String>
         String accumulator = "";
         for( int i = 0; i < 9; i++) {
             AccountDigit digitData = getNthDigitData(i, data);
-            if (digitData.readError) {
+            if (digitData.hasReadError()) {
                 accumulator += "?";
             } else {
                 accumulator += digitData.value();
