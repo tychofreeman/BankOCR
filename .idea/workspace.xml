@@ -4,9 +4,7 @@
     <list default="true" id="fe815407-e653-4710-ae35-f884e2625954" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cwfreeman/AccountData.java" afterPath="$PROJECT_DIR$/src/com/cwfreeman/AccountData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java" afterPath="$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java" afterPath="$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" afterPath="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java" afterPath="$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BankOCR.iws" />
@@ -81,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OCR.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="OCR.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="41" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
+            <state line="19" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.38018432" vertical-offset="120" max-vertical-offset="600">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,16 +93,16 @@
       <file leaf-file-name="LazyAccountReader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="705">
+            <state line="47" column="20" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LazyWriter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LazyWriter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="23" selection-start="293" selection-end="293" vertical-scroll-proportion="0.38018432" vertical-offset="0" max-vertical-offset="615">
+            <state line="27" column="16" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -113,7 +111,7 @@
       <file leaf-file-name="AccountData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/AccountData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="8" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1155">
+            <state line="53" column="0" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -154,10 +152,10 @@
         <option value="$PROJECT_DIR$/src/com/cwfreeman/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cwfreeman/AccountList.java" />
         <option value="$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java" />
-        <option value="$PROJECT_DIR$/src/com/cwfreeman/AccountData.java" />
-        <option value="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" />
-        <option value="$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java" />
         <option value="$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java" />
+        <option value="$PROJECT_DIR$/src/com/cwfreeman/AccountData.java" />
+        <option value="$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java" />
+        <option value="$PROJECT_DIR$/src/com/cwfreeman/OCR.java" />
       </list>
     </option>
   </component>
@@ -248,6 +246,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cwfreeman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountData.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -277,6 +297,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.cwfreeman.DigitIterator" />
       <recent name="com.cwfreeman.AccountData" />
       <recent name="com.cwfreeman.AccountList" />
       <recent name="com.cwfreeman.Digit" />
@@ -289,7 +310,7 @@
       <recent name="com.cwfreeman" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestOCR">
+  <component name="RunManager" selected="Application.OCR">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.cwfreeman.Main" />
@@ -489,8 +510,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestOCR" />
-        <item index="1" class="java.lang.String" itemvalue="Application.OCR" />
+        <item index="0" class="java.lang.String" itemvalue="Application.OCR" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestOCR" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.TestOCR.readsWholeAccountNumber" />
       </list>
     </recent_temporary>
@@ -559,7 +580,11 @@
       <created>1398633244174</created>
       <updated>1398633244174</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Simplify and cleanup...&#10;">
+      <created>1398634193592</created>
+      <updated>1398634193592</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -585,7 +610,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25751072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -612,7 +637,8 @@
     <MESSAGE value="A little cleanup&#10;" />
     <MESSAGE value="Moving towards a lazy implemention." />
     <MESSAGE value="Largely complete lazy reader and writer.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Largely complete lazy reader and writer.&#10;" />
+    <MESSAGE value="Simplify and cleanup...&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify and cleanup...&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -631,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/AccountDigit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/DigitMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="6" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
@@ -645,33 +664,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/AccountDigit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="6" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/AccountData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1155">
+        <state line="53" column="0" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="16" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/LazyAccountReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="705">
+        <state line="47" column="20" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="41" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
+        <state line="19" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.38018432" vertical-offset="120" max-vertical-offset="600">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/LazyWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="23" selection-start="293" selection-end="293" vertical-scroll-proportion="0.38018432" vertical-offset="0" max-vertical-offset="615">
-          <folding />
         </state>
       </provider>
     </entry>

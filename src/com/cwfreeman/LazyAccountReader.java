@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by cwfreeman on 4/27/14.
  */
-class LazyAccountReader implements Iterator<AccountData>
+class LazyAccountReader implements Iterable<AccountData>, Iterator<AccountData>
 {
     private final Iterator<String> lines;
 
@@ -41,5 +41,10 @@ class LazyAccountReader implements Iterator<AccountData>
     @Override
     public void remove() {
         throw new NotImplementedException();
+    }
+
+    @Override
+    public Iterator<AccountData> iterator() {
+        return this;
     }
 }
