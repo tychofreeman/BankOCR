@@ -41,6 +41,7 @@ public class OCR {
     private static String ZERO =  " _ "
                                 + "| |"
                                 + "|_|";
+
     private static final Map<String,Integer> DIGITS = new HashMap<String, Integer>();
     static {
         final List<String> digitList = Arrays.asList(ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE);

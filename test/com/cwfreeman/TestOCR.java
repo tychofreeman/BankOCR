@@ -8,16 +8,46 @@ import java.util.Arrays;
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
-        Assert.assertEquals(1, OCR.getDigitForLines(Arrays.asList("   ", "  |", "  |")));
-        Assert.assertEquals(2, OCR.getDigitForLines(Arrays.asList(" _ ", " _|", "|_ ")));
-        Assert.assertEquals(3, OCR.getDigitForLines(Arrays.asList(" _ ", " _|", " _|")));
-        Assert.assertEquals(4, OCR.getDigitForLines(Arrays.asList("   ", "|_|", "  |")));
-        Assert.assertEquals(5, OCR.getDigitForLines(Arrays.asList(" _ ", "|_ ", " _|")));
-        Assert.assertEquals(6, OCR.getDigitForLines(Arrays.asList(" _ ", "|_ ", "|_|")));
-        Assert.assertEquals(7, OCR.getDigitForLines(Arrays.asList(" _ ", "  |", "  |")));
-        Assert.assertEquals(8, OCR.getDigitForLines(Arrays.asList(" _ ", "|_|", "|_|")));
-        Assert.assertEquals(9, OCR.getDigitForLines(Arrays.asList(" _ ", "|_|", " _|")));
-        Assert.assertEquals(0, OCR.getDigitForLines(Arrays.asList(" _ ", "| |", "|_|")));
+        Assert.assertEquals(1, OCR.getDigitForLines(Arrays.asList(
+                "   ",
+                "  |",
+                "  |")));
+        Assert.assertEquals(2, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                " _|",
+                "|_ ")));
+        Assert.assertEquals(3, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                " _|",
+                " _|")));
+        Assert.assertEquals(4, OCR.getDigitForLines(Arrays.asList(
+                "   ",
+                "|_|",
+                "  |")));
+        Assert.assertEquals(5, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "|_ ",
+                " _|")));
+        Assert.assertEquals(6, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "|_ ",
+                "|_|")));
+        Assert.assertEquals(7, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "  |",
+                "  |")));
+        Assert.assertEquals(8, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "|_|",
+                "|_|")));
+        Assert.assertEquals(9, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "|_|",
+                " _|")));
+        Assert.assertEquals(0, OCR.getDigitForLines(Arrays.asList(
+                " _ ",
+                "| |",
+                "|_|")));
     }
 
     @Test
