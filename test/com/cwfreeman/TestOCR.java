@@ -8,43 +8,43 @@ import java.util.Arrays;
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
-        Assert.assertEquals(1, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(1, OCR.convertSingleDigit(Arrays.asList(
                 "   ",
                 "  |",
                 "  |")));
-        Assert.assertEquals(2, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(2, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 " _|",
                 "|_ ")));
-        Assert.assertEquals(3, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(3, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 " _|",
                 " _|")));
-        Assert.assertEquals(4, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(4, OCR.convertSingleDigit(Arrays.asList(
                 "   ",
                 "|_|",
                 "  |")));
-        Assert.assertEquals(5, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(5, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "|_ ",
                 " _|")));
-        Assert.assertEquals(6, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(6, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "|_ ",
                 "|_|")));
-        Assert.assertEquals(7, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(7, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "  |",
                 "  |")));
-        Assert.assertEquals(8, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(8, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "|_|",
                 "|_|")));
-        Assert.assertEquals(9, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(9, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "|_|",
                 " _|")));
-        Assert.assertEquals(0, OCR.getDigitForLines(Arrays.asList(
+        Assert.assertEquals(0, OCR.convertSingleDigit(Arrays.asList(
                 " _ ",
                 "| |",
                 "|_|")));
@@ -100,6 +100,6 @@ public class TestOCR {
                 "|_||_|  | _|  |  |  | _| _|\n" +
                 "                           \n" +
                 "";
-        Assert.assertEquals(expected, OCR.processTextInput(input));
+        Assert.assertEquals(expected, OCR.ocrMultipleAccounts(input));
     }
 }
