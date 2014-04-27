@@ -57,7 +57,7 @@ public class TestOCR {
                 "  | _| _||_||_ |_   ||_||_|\n" +
                 "  ||_  _|  | _||_|  ||_| _|\n"
         );
-        Assert.assertEquals("123456789", actual);
+        Assert.assertEquals("123456789\n", actual);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TestOCR {
                 "    _  _     _  _  _  _  _ \n" +
                 "    _  _     _  _  _  _  _ \n"
         );
-        Assert.assertEquals("????????? ILL", actual);
+        Assert.assertEquals("????????? ILL\n", actual);
     }
 
     @Test
@@ -77,6 +77,29 @@ public class TestOCR {
                 "|_ |_ |_| _|  |  ||_||_||_ \n" +
                 "|_||_|  | _|  |  |  | _| _|\n"
         );
-        Assert.assertEquals("664371495 ERR", actual);
+        Assert.assertEquals("664371495 ERR\n", actual);
+    }
+
+    @Test
+    public void readsMultipleRecords() {
+        String expected =
+                "00000000? ILL\n" +
+                "123456789\n" +
+                "664371495 ERR\n";
+        String input =
+                " _  _  _  _  _  _  _  _  _ \n" +
+                "| || || || || || || || || |\n" +
+                "|_||_||_||_||_||_||_||_|| |\n" +
+                "                           \n" +
+                "    _  _     _  _  _  _  _ \n" +
+                "  | _| _||_||_ |_   ||_||_|\n" +
+                "  ||_  _|  | _||_|  ||_| _|\n" +
+                "                           \n" +
+                " _  _     _  _        _  _ \n" +
+                "|_ |_ |_| _|  |  ||_||_||_ \n" +
+                "|_||_|  | _|  |  |  | _| _|\n" +
+                "                           \n" +
+                "";
+        Assert.assertEquals(expected, OCR.recognizeOpticalCharacters(input));
     }
 }

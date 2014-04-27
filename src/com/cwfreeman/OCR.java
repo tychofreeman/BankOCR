@@ -67,9 +67,15 @@ public class OCR {
         return -1;
     }
 
-    public static String recognizeOpticalCharacters(String lines) {
-        final String ocrResult = recognizeOpticalCharacters(lines.split("\n"));
-        return encodeAcctNum(ocrResult);
+    public static String recognizeOpticalCharacters(String content) {
+        String accum = "";
+        final String[] lines = content.split("\n");
+        for( int i = 0; i < lines.length; i+= 4 ) {
+            final String[] acctNumLines = Arrays.copyOfRange(lines, i, i + 3);
+            final String ocrResult = recognizeOpticalCharacters(acctNumLines);
+            accum += encodeAcctNum(ocrResult) + "\n";
+        }
+        return accum;
     }
 
     private static boolean passesCheckSum(String ocrResult) {
