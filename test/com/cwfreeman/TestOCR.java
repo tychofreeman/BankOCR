@@ -52,32 +52,32 @@ public class TestOCR {
 
     @Test
     public void readsWholeAccountNumber() {
-        String actual = OCR.recognizeOpticalCharacters(
-                "    _  _     _  _  _  _  _ \n" +
-                "  | _| _||_||_ |_   ||_||_|\n" +
+        String actual = OCR.parseAndEncodeAcctNumber(new String[]{
+                "    _  _     _  _  _  _  _ \n",
+                "  | _| _||_||_ |_   ||_||_|\n",
                 "  ||_  _|  | _||_|  ||_| _|\n"
-        );
-        Assert.assertEquals("123456789\n", actual);
+        });
+        Assert.assertEquals("123456789", actual);
     }
 
     @Test
     public void alertsIfAcctNumIsIllegible() {
-        String actual = OCR.recognizeOpticalCharacters(
-                "    _  _     _  _  _  _  _ \n" +
-                "    _  _     _  _  _  _  _ \n" +
+        String actual = OCR.parseAndEncodeAcctNumber( new String[]{
+                "    _  _     _  _  _  _  _ \n",
+                "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n"
-        );
-        Assert.assertEquals("????????? ILL\n", actual);
+        });
+        Assert.assertEquals("????????? ILL", actual);
     }
 
     @Test
     public void alertsIfWrongCheckSum() {
-        String actual = OCR.recognizeOpticalCharacters(
-                " _  _     _  _        _  _ \n" +
-                "|_ |_ |_| _|  |  ||_||_||_ \n" +
+        String actual = OCR.parseAndEncodeAcctNumber(new String[]{
+                " _  _     _  _        _  _ \n",
+                "|_ |_ |_| _|  |  ||_||_||_ \n",
                 "|_||_|  | _|  |  |  | _| _|\n"
-        );
-        Assert.assertEquals("664371495 ERR\n", actual);
+        });
+        Assert.assertEquals("664371495 ERR", actual);
     }
 
     @Test
@@ -100,6 +100,6 @@ public class TestOCR {
                 "|_||_|  | _|  |  |  | _| _|\n" +
                 "                           \n" +
                 "";
-        Assert.assertEquals(expected, OCR.recognizeOpticalCharacters(input));
+        Assert.assertEquals(expected, OCR.processTextInput(input));
     }
 }

@@ -1,9 +1,8 @@
 package com.cwfreeman;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 /**
  * Created by cwfreeman on 4/26/14.
@@ -67,15 +66,18 @@ public class OCR {
         return -1;
     }
 
-    public static String recognizeOpticalCharacters(String content) {
+    public static String processTextInput(String content) {
         String accum = "";
         final String[] lines = content.split("\n");
         for( int i = 0; i < lines.length; i+= 4 ) {
             final String[] acctNumLines = Arrays.copyOfRange(lines, i, i + 3);
-            final String ocrResult = recognizeOpticalCharacters(acctNumLines);
-            accum += encodeAcctNum(ocrResult) + "\n";
+            accum += parseAndEncodeAcctNumber(acctNumLines) + "\n";
         }
         return accum;
+    }
+
+    static String parseAndEncodeAcctNumber(String[] acctNumLines) {
+        return encodeAcctNum(parseAcctNumber(acctNumLines));
     }
 
     private static boolean passesCheckSum(String ocrResult) {
@@ -95,7 +97,7 @@ public class OCR {
         return ocrResult;
     }
 
-    private static String recognizeOpticalCharacters(String[] strings) {
+    private static String parseAcctNumber(String[] strings) {
         String accumulator = "";
         for( int i = 0; i < 9; i++) {
             List<String> digitData = getNthDigitData(strings, i);
@@ -114,6 +116,15 @@ public class OCR {
                 strings[0].substring(i, i + 3),
                 strings[1].substring(i, i + 3),
                 strings[2].substring(i, i + 3));
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        if( args.length > 0 ) {
+            String content = new Scanner(new File(args[0])).useDelimiter("\\Z").next();
+            System.out.println(processTextInput(content));
+        } else {
+            System.err.println("Usage: OCR.class <filename>");
+        }
     }
 
 }
