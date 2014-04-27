@@ -70,7 +70,7 @@
       <file leaf-file-name="TestOCR.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="42" selection-start="3431" selection-end="3431" vertical-scroll-proportion="-10.807693" vertical-offset="1219" max-vertical-offset="1635">
+            <state line="20" column="42" selection-start="610" selection-end="610" vertical-scroll-proportion="-4.0384617" vertical-offset="195" max-vertical-offset="1635">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,15 +81,13 @@
       <file leaf-file-name="OCR.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="58" selection-start="1826" selection-end="1826" vertical-scroll-proportion="0.4655582" vertical-offset="749" max-vertical-offset="2595">
+            <state line="168" column="70" selection-start="4603" selection-end="4603" vertical-scroll-proportion="5.4608293" vertical-offset="150" max-vertical-offset="2745">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#514#522#0" expanded="true" />
                 <element signature="e#805#818#0" expanded="true" />
-                <element signature="e#3421#3422#0" expanded="true" />
-                <element signature="e#3449#3450#0" expanded="true" />
-                <element signature="e#4153#4154#0" expanded="true" />
-                <element signature="e#4181#4182#0" expanded="true" />
+                <element signature="e#4179#4180#0" expanded="true" />
+                <element signature="e#4207#4208#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -233,6 +231,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.cwfreeman.Digit" />
       <recent name="com.cwfreeman.AccountData" />
       <recent name="com.cwfreeman.DigitData" />
     </key>
@@ -489,7 +488,11 @@
       <created>1398625346851</created>
       <updated>1398625346851</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Moving static digit data out to a separate class as well.">
+      <created>1398625895284</created>
+      <updated>1398625895284</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -515,7 +518,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25751072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -536,7 +539,8 @@
     <MESSAGE value="Made tests easier to read.&#10;" />
     <MESSAGE value="Adding ability to read multiple account numbers.&#10;" />
     <MESSAGE value="Moving toward classes instead of suffering from Primitive Obsession.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving toward classes instead of suffering from Primitive Obsession.&#10;" />
+    <MESSAGE value="Moving static digit data out to a separate class as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving static digit data out to a separate class as well." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -548,7 +552,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/com/cwfreeman/TestOCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="42" selection-start="3431" selection-end="3431" vertical-scroll-proportion="-10.807693" vertical-offset="1219" max-vertical-offset="1635">
+        <state line="20" column="42" selection-start="610" selection-end="610" vertical-scroll-proportion="-4.0384617" vertical-offset="195" max-vertical-offset="1635">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -557,15 +561,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cwfreeman/OCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="58" selection-start="1826" selection-end="1826" vertical-scroll-proportion="0.4655582" vertical-offset="749" max-vertical-offset="2595">
+        <state line="168" column="70" selection-start="4603" selection-end="4603" vertical-scroll-proportion="5.4608293" vertical-offset="150" max-vertical-offset="2745">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#514#522#0" expanded="true" />
             <element signature="e#805#818#0" expanded="true" />
-            <element signature="e#3421#3422#0" expanded="true" />
-            <element signature="e#3449#3450#0" expanded="true" />
-            <element signature="e#4153#4154#0" expanded="true" />
-            <element signature="e#4181#4182#0" expanded="true" />
+            <element signature="e#4179#4180#0" expanded="true" />
+            <element signature="e#4207#4208#0" expanded="true" />
           </folding>
         </state>
       </provider>

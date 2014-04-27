@@ -6,46 +6,46 @@ import org.junit.Test;
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
-        Assert.assertEquals(1, new AccountDigit(
+        Assert.assertEquals(new Integer(1), new AccountDigit(
                 "   ",
                 "  |",
-                "  |").convertToDigit());
-        Assert.assertEquals(2, new AccountDigit(
+                "  |").value());
+        Assert.assertEquals(new Integer(2), new AccountDigit(
                 " _ ",
                 " _|",
-                "|_ ").convertToDigit());
-        Assert.assertEquals(3, new AccountDigit(
+                "|_ ").value());
+        Assert.assertEquals(new Integer(3), new AccountDigit(
                 " _ ",
                 " _|",
-                " _|").convertToDigit());
-        Assert.assertEquals(4, new AccountDigit(
+                " _|").value());
+        Assert.assertEquals(new Integer(4), new AccountDigit(
                 "   ",
                 "|_|",
-                "  |").convertToDigit());
-        Assert.assertEquals(5, new AccountDigit(
+                "  |").value());
+        Assert.assertEquals(new Integer(5), new AccountDigit(
                 " _ ",
                 "|_ ",
-                " _|").convertToDigit());
-        Assert.assertEquals(6, new AccountDigit(
+                " _|").value());
+        Assert.assertEquals(new Integer(6), new AccountDigit(
                 " _ ",
                 "|_ ",
-                "|_|").convertToDigit());
-        Assert.assertEquals(7, new AccountDigit(
+                "|_|").value());
+        Assert.assertEquals(new Integer(7), new AccountDigit(
                 " _ ",
                 "  |",
-                "  |").convertToDigit());
-        Assert.assertEquals(8, new AccountDigit(
+                "  |").value());
+        Assert.assertEquals(new Integer(8), new AccountDigit(
                 " _ ",
                 "|_|",
-                "|_|").convertToDigit());
-        Assert.assertEquals(9, new AccountDigit(
+                "|_|").value());
+        Assert.assertEquals(new Integer(9), new AccountDigit(
                 " _ ",
                 "|_|",
-                " _|").convertToDigit());
-        Assert.assertEquals(0, new AccountDigit(
+                " _|").value());
+        Assert.assertEquals(new Integer(0), new AccountDigit(
                 " _ ",
                 "| |",
-                "|_|").convertToDigit());
+                "|_|").value());
     }
 
     @Test

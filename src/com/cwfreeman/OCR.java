@@ -54,70 +54,80 @@ public class OCR {
 
 }
 
-class Digit extends HashMap<String, Integer>
+class DigitMap
 {
 
+    static String ONE =   "   "
+                        + "  |"
+                        + "  |";
+    static String TWO =   " _ "
+                        + " _|"
+                        + "|_ ";
+    static String THREE = " _ "
+                        + " _|"
+                        + " _|";
+    static String FOUR =  "   "
+                       + "|_|"
+                       + "  |";
+    static String FIVE =  " _ "
+                       + "|_ "
+                       + " _|";
+    static String SIX =   " _ "
+                       + "|_ "
+                       + "|_|";
+    static String SEVEN = " _ "
+                        + "  |"
+                        + "  |";
+    static String EIGHT = " _ "
+                        + "|_|"
+                        + "|_|";
+    static String NINE =  " _ "
+                       + "|_|"
+                       + " _|";
+    static String ZERO =  " _ "
+                        + "| |"
+                        + "|_|";
+
+    Map<String, Integer> map;
+    public DigitMap() {
+        map = new HashMap<String,Integer>();
+        final List<String> digitList = Arrays.asList(ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE);
+        for( int i = 0; i < 10; i++ ) {
+            map.put(digitList.get(i), i);
+        }
+    }
+
+    public int getValue(String key) {
+        return map.get(key);
+    }
+
+    public boolean containsKey(String key) {
+        return map.containsKey(key);
+    }
 }
 
 class AccountDigit
 {
-    private static final Map<String,Integer> DIGITS = new Digit();
-    private static String ONE =   "   "
-                        + "  |"
-                        + "  |";
-    private static String TWO =   " _ "
-                        + " _|"
-                        + "|_ ";
-    private static String THREE = " _ "
-                        + " _|"
-                        + " _|";
-    private static String FOUR =  "   "
-                        + "|_|"
-                        + "  |";
-    private static String FIVE =  " _ "
-                        + "|_ "
-                        + " _|";
-    private static String SIX =   " _ "
-                        + "|_ "
-                        + "|_|";
-    private static String SEVEN = " _ "
-                        + "  |"
-                        + "  |";
-    private static String EIGHT = " _ "
-                        + "|_|"
-                        + "|_|";
-    private static String NINE =  " _ "
-                        + "|_|"
-                        + " _|";
-    private static String ZERO =  " _ "
-                        + "| |"
-                        + "|_|";
-
-
-    static {
-        final List<String> digitList = Arrays.asList(AccountDigit.ZERO, AccountDigit.ONE, AccountDigit.TWO, AccountDigit.THREE, AccountDigit.FOUR, AccountDigit.FIVE, AccountDigit.SIX, AccountDigit.SEVEN, AccountDigit.EIGHT, AccountDigit.NINE);
-        for( int i = 0; i < 10; i++ ) {
-            AccountDigit.DIGITS.put(digitList.get(i), i);
-        }
-
-    }
+    private static final DigitMap DIGITS = new DigitMap();
 
     private String cells;
+    private final Integer digit;
+    boolean readError = false;
 
     public AccountDigit(String line1, String line2, String line3) {
         cells = line1 + line2 + line3;
+        if( DIGITS.containsKey(cells) )
+            digit = DIGITS.getValue(cells);
+        else {
+            digit = null;
+            readError = true;
+        }
     }
 
-    String getKey() {
-        return cells;
+    public Integer value() {
+        return digit;
     }
 
-    public int convertToDigit() {
-        final String digitKey = getKey();
-        if( DIGITS.containsKey(digitKey) )
-            return DIGITS.get(digitKey);
-        return -1;
-    }
 }
 
 class AccountData extends ArrayList<String>
@@ -149,11 +159,11 @@ class AccountData extends ArrayList<String>
         String accumulator = "";
         for( int i = 0; i < 9; i++) {
             AccountDigit digitData = getNthDigitData(i, data);
-            Integer num = digitData.convertToDigit();
-            if( num >= 0 )
-                accumulator += num;
-            else
+            if (digitData.readError) {
                 accumulator += "?";
+            } else {
+                accumulator += digitData.value();
+            }
         }
         return accumulator;
     }
