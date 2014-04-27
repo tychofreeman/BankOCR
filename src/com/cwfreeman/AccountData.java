@@ -14,7 +14,12 @@ class AccountData extends ArrayList<String>
 
     public AccountData(String[] data)
     {
-        value = parseAcctNumber(Arrays.asList(data));
+        this(Arrays.asList(data));
+    }
+
+    public AccountData(List<String> listData)
+    {
+        value = parseAcctNumber(listData);
     }
 
     boolean passesCheckSum() {
