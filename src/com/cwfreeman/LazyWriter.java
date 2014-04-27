@@ -8,8 +8,8 @@ import java.util.Iterator;
 public class LazyWriter implements Iterable<String>, Iterator<String>{
     private final Iterator<AccountData> accounts;
 
-    public LazyWriter(Iterator<String> data) {
-        accounts = new LazyAccountReader(data).iterator();
+    public LazyWriter(Iterator<AccountData> data) {
+        accounts = data;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class LazyWriter implements Iterable<String>, Iterator<String>{
     @Override
     public String next() {
         AccountData next = accounts.next();
-        return OCR.encodeAcctNumber(next);
+        return next.toString();
     }
 
     @Override

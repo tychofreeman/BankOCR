@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by cwfreeman on 4/27/14.
  */
-class LazyAccountReader implements Iterable<AccountData>, Iterator<AccountData>
+class LazyAccountReader implements Iterator<AccountData>
 {
     private final Iterator<String> lines;
 
@@ -23,10 +23,6 @@ class LazyAccountReader implements Iterable<AccountData>, Iterator<AccountData>
             nextGroup.add(lines.next());
         }
         return nextGroup;
-    }
-
-    public Iterator<AccountData> iterator() {
-        return this;
     }
 
    List<String> nextFourLines = null;

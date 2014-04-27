@@ -13,26 +13,21 @@ public class OCR {
         Iterator<String> data = new Scanner(content).useDelimiter("\n");
         String accum = "";
 
-        for( String s : new LazyWriter(data)) {
+        for( String s : getLazyWriter(data)) {
             accum += s + "\n";
         }
         return accum;
     }
 
-    static String encodeAcctNumber(AccountData lineData) {
-        String ocrResult = lineData.getValue();
-        if(lineData.hasReadError())
-            return ocrResult + " ILL";
-        if( !lineData.passesCheckSum() )
-            return ocrResult + " ERR";
-        return ocrResult;
+    static private LazyWriter getLazyWriter(Iterator<String> content) {
+        return new LazyWriter(new LazyAccountReader(content));
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         if( args.length > 0 ) {
             Iterator<String> content = new Scanner(new File(args[0])).useDelimiter("\n");
 
-            for( String s : new LazyWriter(content)) {
+            for( String s : getLazyWriter(content)) {
                 System.out.println(s);
             }
         } else {

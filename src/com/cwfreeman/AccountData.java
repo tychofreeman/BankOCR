@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by cwfreeman on 4/27/14.
  */
-class AccountData extends ArrayList<String>
+class AccountData
 {
     String value;
     private boolean readError = false;
@@ -20,6 +20,19 @@ class AccountData extends ArrayList<String>
     public AccountData(List<String> listData)
     {
         value = parseAcctNumber(listData);
+    }
+
+    String encodeAcctNumber() {
+        if(hasReadError())
+            return value + " ILL";
+        if( !passesCheckSum() )
+            return value + " ERR";
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return this.encodeAcctNumber();
     }
 
     boolean passesCheckSum() {
@@ -35,9 +48,6 @@ class AccountData extends ArrayList<String>
         return readError;
     }
 
-    String getValue() {
-        return value;
-    }
 
     private String parseAcctNumber(List<String> data) {
         String accumulator = "";

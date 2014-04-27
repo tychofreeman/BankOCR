@@ -50,31 +50,31 @@ public class TestOCR {
 
     @Test
     public void readsWholeAccountNumber() {
-        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
+        String actual = new AccountData(new String[]{
                 "    _  _     _  _  _  _  _ \n",
                 "  | _| _||_||_ |_   ||_||_|\n",
                 "  ||_  _|  | _||_|  ||_| _|\n"
-        }));
+        }).encodeAcctNumber();
         Assert.assertEquals("123456789", actual);
     }
 
     @Test
     public void alertsIfAcctNumIsIllegible() {
-        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
+        String actual = new AccountData(new String[]{
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n"
-        }));
+        }).encodeAcctNumber();
         Assert.assertEquals("????????? ILL", actual);
     }
 
     @Test
     public void alertsIfWrongCheckSum() {
-        String actual = OCR.encodeAcctNumber(new AccountData(new String[]{
+        String actual = new AccountData(new String[]{
                 " _  _     _  _        _  _ \n",
                 "|_ |_ |_| _|  |  ||_||_||_ \n",
                 "|_||_|  | _|  |  |  | _| _|\n"
-        }));
+        }).encodeAcctNumber();
         Assert.assertEquals("664371495 ERR", actual);
     }
 
