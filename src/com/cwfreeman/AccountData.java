@@ -30,7 +30,7 @@ class AccountData
         }
     }
 
-    boolean hasReadError() {
+    private boolean hasReadError() {
         return readError;
     }
 
@@ -43,7 +43,7 @@ class AccountData
         return value;
     }
 
-    boolean passesCheckSum(List<Integer> digits) {
+    private boolean passesCheckSum(List<Integer> digits) {
         int sum = 0;
         for( int i = 0; i < 9; i++) {
             final int digit = digits.get(i);
