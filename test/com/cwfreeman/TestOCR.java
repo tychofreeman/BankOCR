@@ -6,43 +6,43 @@ import org.junit.Test;
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
-        Assert.assertEquals(1, new DigitData(
+        Assert.assertEquals(1, new AccountDigit(
                 "   ",
                 "  |",
                 "  |").convertToDigit());
-        Assert.assertEquals(2, new DigitData(
+        Assert.assertEquals(2, new AccountDigit(
                 " _ ",
                 " _|",
                 "|_ ").convertToDigit());
-        Assert.assertEquals(3, new DigitData(
+        Assert.assertEquals(3, new AccountDigit(
                 " _ ",
                 " _|",
                 " _|").convertToDigit());
-        Assert.assertEquals(4, new DigitData(
+        Assert.assertEquals(4, new AccountDigit(
                 "   ",
                 "|_|",
                 "  |").convertToDigit());
-        Assert.assertEquals(5, new DigitData(
+        Assert.assertEquals(5, new AccountDigit(
                 " _ ",
                 "|_ ",
                 " _|").convertToDigit());
-        Assert.assertEquals(6, new DigitData(
+        Assert.assertEquals(6, new AccountDigit(
                 " _ ",
                 "|_ ",
                 "|_|").convertToDigit());
-        Assert.assertEquals(7, new DigitData(
+        Assert.assertEquals(7, new AccountDigit(
                 " _ ",
                 "  |",
                 "  |").convertToDigit());
-        Assert.assertEquals(8, new DigitData(
+        Assert.assertEquals(8, new AccountDigit(
                 " _ ",
                 "|_|",
                 "|_|").convertToDigit());
-        Assert.assertEquals(9, new DigitData(
+        Assert.assertEquals(9, new AccountDigit(
                 " _ ",
                 "|_|",
                 " _|").convertToDigit());
-        Assert.assertEquals(0, new DigitData(
+        Assert.assertEquals(0, new AccountDigit(
                 " _ ",
                 "| |",
                 "|_|").convertToDigit());

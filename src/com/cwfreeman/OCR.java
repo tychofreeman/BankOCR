@@ -18,12 +18,8 @@ public class OCR {
     }
 
     private static List<String> ocrMultipleAccounts(String[] lines) {
-        return ocrMultipleAccounts(parseAccountNumbers(lines));
-    }
-
-    private static List<String> ocrMultipleAccounts(List<AccountData> accounts) {
         List<String> accum = new ArrayList<String>();
-        for( AccountData account : accounts ) {
+        for( AccountData account : parseAccountNumbers(lines)) {
             accum.add(encodeAcctNumber(account));
         }
         return accum;
@@ -39,22 +35,10 @@ public class OCR {
     }
 
     static String encodeAcctNumber(AccountData lineData) {
-        return encodeAcctNum(lineData.getValue());
-    }
-
-    private static boolean passesCheckSum(String ocrResult) {
-        int sum = 0;
-        for( int i = 0; i < 9; i++) {
-            final int digit = Integer.parseInt(ocrResult.substring(i, i + 1));
-            sum += (9 - i) * digit;
-        }
-        return (sum % 11) == 0;
-    }
-
-    private static String encodeAcctNum(String ocrResult) {
-        if( ocrResult.contains("?") )
+        String ocrResult = lineData.getValue();
+        if(lineData.hasReadError())
             return ocrResult + " ILL";
-        if( !passesCheckSum(ocrResult) )
+        if( !lineData.passesCheckSum() )
             return ocrResult + " ERR";
         return ocrResult;
     }
@@ -70,52 +54,57 @@ public class OCR {
 
 }
 
-class DigitData
+class Digit extends HashMap<String, Integer>
 {
-    static final Map<String,Integer> DIGITS = new HashMap<String, Integer>();
-    static String ONE =   "   "
+
+}
+
+class AccountDigit
+{
+    private static final Map<String,Integer> DIGITS = new Digit();
+    private static String ONE =   "   "
                         + "  |"
                         + "  |";
-    static String TWO =   " _ "
+    private static String TWO =   " _ "
                         + " _|"
                         + "|_ ";
-    static String THREE = " _ "
+    private static String THREE = " _ "
                         + " _|"
                         + " _|";
-    static String FOUR =  "   "
+    private static String FOUR =  "   "
                         + "|_|"
                         + "  |";
-    static String FIVE =  " _ "
+    private static String FIVE =  " _ "
                         + "|_ "
                         + " _|";
-    static String SIX =   " _ "
+    private static String SIX =   " _ "
                         + "|_ "
                         + "|_|";
-    static String SEVEN = " _ "
+    private static String SEVEN = " _ "
                         + "  |"
                         + "  |";
-    static String EIGHT = " _ "
+    private static String EIGHT = " _ "
                         + "|_|"
                         + "|_|";
-    static String NINE =  " _ "
+    private static String NINE =  " _ "
                         + "|_|"
                         + " _|";
-    static String ZERO =  " _ "
+    private static String ZERO =  " _ "
                         + "| |"
                         + "|_|";
 
 
     static {
-        final List<String> digitList = Arrays.asList(DigitData.ZERO, DigitData.ONE, DigitData.TWO, DigitData.THREE, DigitData.FOUR, DigitData.FIVE, DigitData.SIX, DigitData.SEVEN, DigitData.EIGHT, DigitData.NINE);
+        final List<String> digitList = Arrays.asList(AccountDigit.ZERO, AccountDigit.ONE, AccountDigit.TWO, AccountDigit.THREE, AccountDigit.FOUR, AccountDigit.FIVE, AccountDigit.SIX, AccountDigit.SEVEN, AccountDigit.EIGHT, AccountDigit.NINE);
         for( int i = 0; i < 10; i++ ) {
-            DigitData.DIGITS.put(digitList.get(i), i);
+            AccountDigit.DIGITS.put(digitList.get(i), i);
         }
 
     }
 
     private String cells;
 
-    public DigitData(String line1, String line2, String line3) {
+    public AccountDigit(String line1, String line2, String line3) {
         cells = line1 + line2 + line3;
     }
 
@@ -139,6 +128,19 @@ class AccountData extends ArrayList<String>
         value = parseAcctNumber(Arrays.asList(data));
     }
 
+    boolean passesCheckSum() {
+        int sum = 0;
+        for( int i = 0; i < 9; i++) {
+            final int digit = Integer.parseInt(value.substring(i, i + 1));
+            sum += (9 - i) * digit;
+        }
+        return (sum % 11) == 0;
+    }
+
+    boolean hasReadError() {
+        return value.contains("?");
+    }
+
     String getValue() {
         return value;
     }
@@ -146,7 +148,7 @@ class AccountData extends ArrayList<String>
     private String parseAcctNumber(List<String> data) {
         String accumulator = "";
         for( int i = 0; i < 9; i++) {
-            DigitData digitData = getNthDigitData(i, data);
+            AccountDigit digitData = getNthDigitData(i, data);
             Integer num = digitData.convertToDigit();
             if( num >= 0 )
                 accumulator += num;
@@ -156,9 +158,9 @@ class AccountData extends ArrayList<String>
         return accumulator;
     }
 
-    private DigitData getNthDigitData(int n, List<String> data) {
+    private AccountDigit getNthDigitData(int n, List<String> data) {
         final int i = 3 * n;
-        return new DigitData(
+        return new AccountDigit(
                 data.get(0).substring(i, i + 3),
                 data.get(1).substring(i, i + 3),
                 data.get(2).substring(i, i + 3));
