@@ -54,7 +54,7 @@ public class TestOCR {
                 "    _  _     _  _  _  _  _ \n",
                 "  | _| _||_||_ |_   ||_||_|\n",
                 "  ||_  _|  | _||_|  ||_| _|\n"
-        }).encodeAcctNumber();
+        }).toString();
         Assert.assertEquals("123456789", actual);
     }
 
@@ -64,7 +64,7 @@ public class TestOCR {
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n",
                 "    _  _     _  _  _  _  _ \n"
-        }).encodeAcctNumber();
+        }).toString();
         Assert.assertEquals("????????? ILL", actual);
     }
 
@@ -74,7 +74,7 @@ public class TestOCR {
                 " _  _     _  _        _  _ \n",
                 "|_ |_ |_| _|  |  ||_||_||_ \n",
                 "|_||_|  | _|  |  |  | _| _|\n"
-        }).encodeAcctNumber();
+        }).toString();
         Assert.assertEquals("664371495 ERR", actual);
     }
 

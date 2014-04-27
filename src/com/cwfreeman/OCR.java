@@ -10,9 +10,10 @@ import java.util.*;
 public class OCR {
 
     public static String ocrMultipleAccounts(String content) {
+        Iterator<String> data = new Scanner(content).useDelimiter("\n");
         String accum = "";
 
-        for( AccountData s : new LazyAccountReader(content)) {
+        for( AccountData s : new LazyAccountReader(data)) {
             accum += s + "\n";
         }
         return accum;

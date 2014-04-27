@@ -28,4 +28,12 @@ class AccountDigit
     boolean hasReadError() {
         return readError;
     }
+
+    @Override
+    public String toString() {
+        if( readError )
+            return "?";
+        else
+            return "" + digit;
+    }
 }

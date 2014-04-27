@@ -1,7 +1,7 @@
 package com.cwfreeman;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -10,6 +10,7 @@ import java.util.List;
 class AccountData
 {
     String value;
+    List<AccountDigit> digits;
     private boolean readError = false;
 
     public AccountData(String[] data)
@@ -19,91 +20,47 @@ class AccountData
 
     public AccountData(List<String> listData)
     {
-        value = parseAcctNumber(listData);
-    }
-
-    String encodeAcctNumber() {
-        if(hasReadError())
-            return value + " ILL";
-        if( !passesCheckSum() )
-            return value + " ERR";
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return this.encodeAcctNumber();
-    }
-
-    boolean passesCheckSum() {
-        int sum = 0;
-        for( int i = 0; i < 9; i++) {
-            final int digit = Integer.parseInt(value.substring(i, i + 1));
-            sum += (9 - i) * digit;
+        digits = new ArrayList<AccountDigit>();
+        value = "";
+        readError = false;
+        for( AccountDigit digit : new DigitIterator(listData)) {
+            digits.add(digit);
+            readError |= digit.hasReadError();
+            value += digit.toString();
         }
-        return (sum % 11) == 0;
     }
 
     boolean hasReadError() {
         return readError;
     }
 
+    @Override
+    public String toString() {
+        if( hasReadError() )
+            return value + " ILL";
+        if( !passesCheckSum(toValues(digits)) )
+            return value + " ERR";
+        return value;
+    }
 
-    private String parseAcctNumber(List<String> data) {
-        String accumulator = "";
-        for( AccountDigit digitData : new DigitIterator(data)) {
-            if (digitData.hasReadError()) {
-                readError = true;
-                accumulator += "?";
-            } else {
-                accumulator += digitData.value();
-            }
+    boolean passesCheckSum(List<Integer> digits) {
+        int sum = 0;
+        for( int i = 0; i < 9; i++) {
+            final int digit = digits.get(i);
+            sum += (9 - i) * digit;
         }
-        return accumulator;
+        return (sum % 11) == 0;
+    }
+
+    private List<Integer> toValues(List<AccountDigit> digits) {
+        List<Integer> ints = new ArrayList<Integer>();
+        for( AccountDigit ad : digits ) {
+            ints.add(ad.value());
+        }
+        return ints;
     }
 
 
 }
 
 
-class DigitIterator implements Iterator<AccountDigit>, Iterable<AccountDigit>
-{
-
-    private List<String> data;
-    private int digitIndex = 0;
-
-    public DigitIterator(List<String> data) {
-
-        this.data = data;
-    }
-
-    static AccountDigit getNthDigitData(int n, List<String> data) {
-        final int i = 3 * n;
-        return new AccountDigit(
-                data.get(0).substring(i, i + 3),
-                data.get(1).substring(i, i + 3),
-                data.get(2).substring(i, i + 3));
-    }
-
-    @Override
-    public Iterator<AccountDigit> iterator() {
-        return this;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return digitIndex < 9;
-    }
-
-    @Override
-    public AccountDigit next() {
-        AccountDigit digit = getNthDigitData(digitIndex, data);
-        digitIndex++;
-        return digit;
-    }
-
-    @Override
-    public void remove() {
-
-    }
-}
