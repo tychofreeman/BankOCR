@@ -34,6 +34,6 @@ class AccountDigit
         if( readError )
             return "?";
         else
-            return "" + digit;
+            return digit.toString();
     }
 }
