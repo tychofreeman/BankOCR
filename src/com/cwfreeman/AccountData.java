@@ -1,8 +1,6 @@
 package com.cwfreeman;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by cwfreeman on 4/27/14.
@@ -36,10 +34,13 @@ class AccountData
 
     @Override
     public String toString() {
-        if( hasReadError() )
-            return value + " ILL";
-        if( !passesCheckSum(toValues(digits)) )
-            return value + " ERR";
+        if( hasReadError() || !passesCheckSum(toValues(digits)) ) {
+
+            if( hasReadError())
+                return value + " ILL";
+            if( !passesCheckSum(toValues(digits)) )
+                return value + " ERR";
+        }
         return value;
     }
 
@@ -58,6 +59,27 @@ class AccountData
             ints.add(ad.value());
         }
         return ints;
+    }
+
+    public Set<List<Integer>> neighbors() {
+        Set<List<Integer>> neighbors = new HashSet<List<Integer>>();
+        int i = 0;
+        for(AccountDigit d : digits ) {
+            for( Integer dNeighbor : d.neighbors() ) {
+                neighbors.add(createNeighborAcctNum(i, dNeighbor));
+            }
+            i++;
+        }
+        return neighbors;
+    }
+
+    private List<Integer> createNeighborAcctNum(int i, Integer dNeighbor) {
+        List<Integer> neighbor = new ArrayList<Integer>();
+        for( AccountDigit origDigit : digits ) {
+            neighbor.add(origDigit.value());
+        }
+        neighbor.set(i, dNeighbor);
+        return neighbor;
     }
 
 

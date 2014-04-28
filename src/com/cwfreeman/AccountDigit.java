@@ -1,5 +1,8 @@
 package com.cwfreeman;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by cwfreeman on 4/27/14.
  */
@@ -9,9 +12,10 @@ class AccountDigit
 
     private final Integer digit;
     boolean readError = false;
+    private String cells;
 
     public AccountDigit(String line1, String line2, String line3) {
-        String cells = line1 + line2 + line3;
+        cells = line1 + line2 + line3;
         if( DIGITS.containsKey(cells) )    {
             digit = DIGITS.getValue(cells);
             readError = false;
@@ -35,5 +39,9 @@ class AccountDigit
             return "?";
         else
             return digit.toString();
+    }
+
+    public Set<Integer> neighbors() {
+        return DIGITS.getNeighbors(cells);
     }
 }

@@ -3,6 +3,11 @@ package com.cwfreeman;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
@@ -100,4 +105,30 @@ public class TestOCR {
                 "";
         Assert.assertEquals(expected, OCR.ocrMultipleAccounts(input));
     }
+
+    @Test
+    public void SevenIsANeighborOfOne() {
+        Set<Integer> neighbors = new DigitMap().getNeighbors(
+                "   "
+              + "  |"
+              + "  |"
+        );
+        Assert.assertTrue(neighbors.contains(7));
+    }
+
+    @Test
+    public void findsNeighbors() {
+        String[] input = {
+                " _  _  _  _  _  _  _  _  _ \n",
+                "  || || || || || || || || |\n",
+                "  ||_||_||_||_||_||_||_||_|\n",
+                "                           \n" } ;
+
+        Set<List<Integer>> neighbors = new AccountData(input).neighbors();
+
+        Assert.assertTrue(neighbors.contains(Arrays.asList(1,0,0,0,0,0,0,0,0)));
+        Assert.assertTrue(neighbors.contains(Arrays.asList(7,8,0,0,0,0,0,0,0)));
+        Assert.assertTrue(neighbors.contains(Arrays.asList(7,0,0,0,0,8,0,0,0)));
+    }
+
 }
