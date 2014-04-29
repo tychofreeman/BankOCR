@@ -83,6 +83,16 @@ class AccountData
     }
 
 
+    public Set<List<Integer>> validNeighbors() {
+
+        final HashSet<List<Integer>> validNeighbors = new HashSet<List<Integer>>();
+        for( List<Integer> neighbor : neighbors() ) {
+            if( passesCheckSum(neighbor) ) {
+                validNeighbors.add(neighbor);
+            }
+        }
+        return validNeighbors;
+    }
 }
 
 

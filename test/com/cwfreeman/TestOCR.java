@@ -131,4 +131,16 @@ public class TestOCR {
         Assert.assertTrue(neighbors.contains(Arrays.asList(7,0,0,0,0,8,0,0,0)));
     }
 
+    @Test
+    public void findsNeighborsWithValidCheckSum() {
+        String[] input = {
+           " _  _  _  _  _  _  _  _  _ \n",
+           "|_ |_ |_ |_ |_ |_ |_ |_ |_ \n",
+           " _| _| _| _| _| _| _| _| _|\n"
+        };
+        Set<List<Integer>> validNeighbors = new AccountData(input).validNeighbors();
+        Assert.assertFalse(validNeighbors.contains(Arrays.asList(5,5,5,5,5,5,5,5,5)));
+        Assert.assertTrue(validNeighbors.contains(Arrays.asList(5,5,5,6,5,5,5,5,5)));
+        Assert.assertFalse(validNeighbors.contains(Arrays.asList(5,5,5,9,5,5,5,5,5)));
+    }
 }
