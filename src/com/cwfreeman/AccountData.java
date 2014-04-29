@@ -24,8 +24,16 @@ class AccountData
         for( AccountDigit digit : new DigitIterator(listData)) {
             digits.add(digit);
             readError |= digit.hasReadError();
-            value += digit.toString();
         }
+        value = digitsAsString(digits);
+    }
+
+    private String digitsAsString(List digits) {
+        String accum = "";
+        for( Object digit : digits) {
+            accum += digit.toString();
+        }
+        return accum;
     }
 
     private boolean hasReadError() {
@@ -35,7 +43,11 @@ class AccountData
     @Override
     public String toString() {
         if( hasReadError() || !passesCheckSum(toValues(digits)) ) {
-
+            final Iterator<List<Integer>> iterator = validNeighbors().iterator();
+            if( iterator.hasNext() ) {
+                final List<Integer> next = iterator.next();
+                return digitsAsString(next);
+            }
             if( hasReadError())
                 return value + " ILL";
             if( !passesCheckSum(toValues(digits)) )
@@ -66,25 +78,31 @@ class AccountData
         int i = 0;
         for(AccountDigit d : digits ) {
             for( Integer dNeighbor : d.neighbors() ) {
-                neighbors.add(createNeighborAcctNum(i, dNeighbor));
+                final Integer[] neighborAcctNum = createNeighborAcctNum(i, dNeighbor);
+                if( neighborAcctNum != null ) {
+                    neighbors.add(Arrays.asList(neighborAcctNum));
+                }
             }
             i++;
         }
         return neighbors;
     }
 
-    private List<Integer> createNeighborAcctNum(int i, Integer dNeighbor) {
-        List<Integer> neighbor = new ArrayList<Integer>();
+    private Integer[] createNeighborAcctNum(int replaceIndex, Integer dNeighbor) {
+        Integer[] neighbor = new Integer[]{0,0,0,0,0,0,0,0,0};
+        int i = 0;
         for( AccountDigit origDigit : digits ) {
-            neighbor.add(origDigit.value());
+            if( i != replaceIndex && origDigit.hasReadError() ) {
+                return null;
+            }
+            neighbor[i++] = origDigit.value();
         }
-        neighbor.set(i, dNeighbor);
+        neighbor[replaceIndex] = dNeighbor;
         return neighbor;
     }
 
 
     public Set<List<Integer>> validNeighbors() {
-
         final HashSet<List<Integer>> validNeighbors = new HashSet<List<Integer>>();
         for( List<Integer> neighbor : neighbors() ) {
             if( passesCheckSum(neighbor) ) {

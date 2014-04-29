@@ -74,21 +74,11 @@ public class TestOCR {
     }
 
     @Test
-    public void alertsIfWrongCheckSum() {
-        String actual = new AccountData(new String[]{
-                " _  _     _  _        _  _ \n",
-                "|_ |_ |_| _|  |  ||_||_||_ \n",
-                "|_||_|  | _|  |  |  | _| _|\n"
-        }).toString();
-        Assert.assertEquals("664371495 ERR", actual);
-    }
-
-    @Test
     public void readsMultipleRecords() {
         String expected =
-                "00000000? ILL\n" +
+                "000000000\n" +
                 "123456789\n" +
-                "664371495 ERR\n";
+                "664371485\n";
         String input =
                 " _  _  _  _  _  _  _  _  _ \n" +
                 "| || || || || || || || || |\n" +
@@ -140,7 +130,35 @@ public class TestOCR {
         };
         Set<List<Integer>> validNeighbors = new AccountData(input).validNeighbors();
         Assert.assertFalse(validNeighbors.contains(Arrays.asList(5,5,5,5,5,5,5,5,5)));
-        Assert.assertTrue(validNeighbors.contains(Arrays.asList(5,5,5,6,5,5,5,5,5)));
-        Assert.assertFalse(validNeighbors.contains(Arrays.asList(5,5,5,9,5,5,5,5,5)));
+        Assert.assertTrue(validNeighbors.contains(Arrays.asList(5, 5, 5, 6, 5, 5, 5, 5, 5)));
+        Assert.assertFalse(validNeighbors.contains(Arrays.asList(5, 5, 5, 9, 5, 5, 5, 5, 5)));
     }
+
+    @Test
+    public void printsUniqueNeighborWithValidCheckSum() {
+        String[] input = {
+          " _  _  _  _  _  _  _  _  _ \n",
+          " _| _| _| _| _| _| _| _| _|\n",
+          " _| _| _| _| _| _| _| _| _|\n",
+          "\n"
+        };
+        String expected = "333393333";
+        String actual = new AccountData(input).toString();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findsNeighborsIfErrors() {
+        String[] input = {
+                " _  _  _  _  _  _  _  _  _ \n",
+                "| || || || || || || || || |\n",
+                "|_||_||_||_||_||_||_||_|| |\n",
+                "                           \n",
+        } ;
+
+        String neighbors = new AccountData(input).toString();
+
+        Assert.assertTrue(neighbors.contains("000000000"));
+    }
+
 }
