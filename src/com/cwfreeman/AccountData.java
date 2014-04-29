@@ -43,10 +43,16 @@ class AccountData
     @Override
     public String toString() {
         if( hasReadError() || !passesCheckSum(toValues(digits)) ) {
-            final Iterator<List<Integer>> iterator = validNeighbors().iterator();
-            if( iterator.hasNext() ) {
-                final List<Integer> next = iterator.next();
-                return digitsAsString(next);
+            final Set<List<Integer>> neighbors = validNeighbors();
+            if( neighbors.size() == 1 ) {
+                final Iterator<List<Integer>> iterator = neighbors.iterator();
+                if( iterator.hasNext() ) {
+                    final List<Integer> next = iterator.next();
+                    return digitsAsString(next);
+                }
+            }
+            if( neighbors.size() > 1 ) {
+                return value + " AMB " + join(neighbors);
             }
             if( hasReadError())
                 return value + " ILL";
@@ -54,6 +60,16 @@ class AccountData
                 return value + " ERR";
         }
         return value;
+    }
+
+    private String join(Set<List<Integer>> neighbors) {
+        String accum = "[";
+        String joint = "";
+        for( List<Integer> acctNum : neighbors ) {
+            accum += joint + "'" + digitsAsString(acctNum) + "'";
+            joint = ", ";
+        }
+        return accum + "]";
     }
 
     private boolean passesCheckSum(List<Integer> digits) {

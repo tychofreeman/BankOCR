@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import static org.junit.matchers.JUnitMatchers.containsString;
+
 public class TestOCR {
     @Test
     public void readsCorrectDigits() {
@@ -161,4 +163,19 @@ public class TestOCR {
         Assert.assertTrue(neighbors.contains("000000000"));
     }
 
+    @Test
+    public void printsOptionsWHenCannotFindSingleFix() {
+        String[] input = {
+                " _  _  _  _  _  _  _  _  _ \n",
+                "|_||_||_||_||_||_||_||_||_|\n",
+                "|_||_||_||_||_||_||_||_||_|\n"
+        };
+
+        String neighbors = new AccountData(input).toString();
+
+        Assert.assertTrue(neighbors.matches("^888888888 AMB \\['.*, .*, .*'\\]$"));
+        Assert.assertThat(neighbors, containsString("'888886888'"));
+        Assert.assertThat(neighbors, containsString("'888888880'"));
+        Assert.assertThat(neighbors, containsString("'888888988'"));
+    }
 }
